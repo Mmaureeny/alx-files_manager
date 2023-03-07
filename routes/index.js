@@ -1,6 +1,6 @@
 import express from "express"
 const Router = express.Router()
-import {getStatus, getStats} from "../constrollers/AppController" 
-Router.route("/status" ).get(getStatus)
-Router.route("/stats").get(getStats)
+import {f} from "../controllers/AppController" 
+Router.route("/status" ).get(f.getStatus)
+Router.route("/stats").get(f.getStats)
 export default Router
