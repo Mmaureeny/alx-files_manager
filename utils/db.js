@@ -1,5 +1,3 @@
-
-
 import { MongoClient } from 'mongodb';
 
 class DBClient {
@@ -15,7 +13,6 @@ class DBClient {
     this.client = MongoClient(url, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
-      // family: 4
     });
 
     this.client.connect().catch((error) => {
@@ -27,7 +24,6 @@ class DBClient {
 
   async isAlive() {
     return !!this.client && !!this.client.topology && this.client.topology.isConnected();
-    // return this.client.isConnected();
   }
 
   async nbUsers() {
@@ -41,6 +37,6 @@ class DBClient {
     const countFiles = await files.countDocuments();
     return countFiles;
   }
-
+}
 const dbClient = new DBClient();
 module.exports = dbClient;
